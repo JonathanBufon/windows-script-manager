@@ -118,12 +118,80 @@ set "WINGET_APPS=Discord.Discord Valve.Steam Mozilla.Firefox RARLab.WinRAR Video
 | WinRAR | `RARLab.WinRAR` |
 | VLC | `VideoLAN.VLC` |
 
-Para acrescentar outro, descubra o ID e emende na mesma linha:
+### Adicionando um programa
+
+Descubra o ID exato com `winget search` e emende na mesma linha, separado por
+espaço:
 
 ```bat
 winget search "obs studio"
-:: -> OBSProject.OBSStudio
+
+Nome        Id                    Versão   Origem
+-------------------------------------------------
+OBS Studio  OBSProject.OBSStudio  31.0.1   winget
+            ^^^^^^^^^^^^^^^^^^^^
+            é essa coluna que vai na lista
 ```
+
+```bat
+:: antes
+set "WINGET_APPS=Discord.Discord Valve.Steam Mozilla.Firefox RARLab.WinRAR VideoLAN.VLC"
+
+:: depois
+set "WINGET_APPS=Discord.Discord Valve.Steam Mozilla.Firefox RARLab.WinRAR VideoLAN.VLC OBSProject.OBSStudio"
+```
+
+Alguns IDs comuns para começar — sempre confirme com `winget search` antes,
+porque os mantenedores às vezes renomeiam:
+
+| Programa | ID |
+|---|---|
+| 7-Zip | `7zip.7zip` |
+| Google Chrome | `Google.Chrome` |
+| Notepad++ | `Notepad++.Notepad++` |
+| Visual Studio Code | `Microsoft.VisualStudioCode` |
+| OBS Studio | `OBSProject.OBSStudio` |
+| Spotify | `Spotify.Spotify` |
+| qBittorrent | `qBittorrent.qBittorrent` |
+| Epic Games Launcher | `EpicGames.EpicGamesLauncher` |
+| PowerToys | `Microsoft.PowerToys` |
+| Git | `Git.Git` |
+
+### Removendo um programa
+
+Apague o item da linha. Só isso:
+
+```bat
+:: sem o Discord
+set "WINGET_APPS=Valve.Steam Mozilla.Firefox RARLab.WinRAR VideoLAN.VLC"
+```
+
+> ⚠️ Tirar da lista **não desinstala** nada que já esteja no PC — só faz o
+> script parar de instalar aquilo nas próximas execuções. Para desinstalar de
+> verdade:
+>
+> ```bat
+> winget uninstall --id Discord.Discord
+> ```
+
+Para desligar a instalação por completo, sem mexer na lista, use
+`set "DO_INSTALL=0"` ou a opção `[2]` do menu.
+
+### Regras da lista
+
+- Tudo em **uma única linha**, entre as aspas do `set "WINGET_APPS=..."`.
+- Separador é **espaço**, sem vírgula e sem aspas nos itens.
+- Use o **Id**, não o nome do programa: `Mozilla.Firefox`, não `Firefox`.
+- Como o script usa `--exact`, um ID errado faz falhar **só aquele** pacote —
+  os outros continuam. O código do erro aparece no log.
+- Se você adicionar um programa que deva virar padrão de algum tipo de arquivo,
+  veja também [Programas padrão](#programas-padrão).
+
+> A lista de apps que o módulo de **debloat remove** é outra, e fica dentro da
+> sub-rotina `:MOD_DEBLOAT`, nas linhas `set "APPS=..."`. Mesma ideia: itens
+> separados por espaço.
+
+### Como a instalação roda
 
 Cada pacote é instalado com `--exact --id --silent --accept-package-agreements
 --accept-source-agreements --disable-interactivity`, ou seja, zero clique. Os
