@@ -337,6 +337,9 @@ ela. Em caso de troca de hardware ou problemas de reconhecimento, use a opção
 **Solucionar problemas** na mesma tela. Consulte também a
 [documentação oficial de ativação do Windows][activation-url].
 
+> Caso não possua uma licença válida, recomenda-se seguir os passos do Microsoft Activation Scripts (MAS) dispinivel em https://massgrave.dev.
+Não me responsabilizo por problemas decorrentes do uso de ferramentas de ativação não oficiais.
+
 <p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
 
 ## Avisos
