@@ -53,6 +53,7 @@
       </ul>
     </li>
     <li><a href="#como-funciona">Como funciona</a></li>
+    <li><a href="#ativação">Ativação</a></li>
     <li><a href="#avisos">Avisos</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contribuindo">Contribuindo</a></li>
@@ -320,6 +321,24 @@ entram na faxina. O DISM, que é o passo mais lento, roda por último.
 
 <p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
 
+## Ativação
+
+Este script não ativa o Windows nem altera o licenciamento do sistema. Para
+ativar o Windows de forma oficial, tenha uma licença digital ou uma chave do
+produto válida e siga estes passos:
+
+1. Abra **Configurações**.
+2. Acesse **Sistema › Ativação**.
+3. Selecione **Alterar chave do produto**, informe sua chave e conclua as
+   instruções exibidas na tela.
+
+Se você já possui uma licença digital, entre com a conta Microsoft vinculada a
+ela. Em caso de troca de hardware ou problemas de reconhecimento, use a opção
+**Solucionar problemas** na mesma tela. Consulte também a
+[documentação oficial de ativação do Windows][activation-url].
+
+<p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
+
 ## Avisos
 
 > [!CAUTION]
@@ -434,3 +453,4 @@ novos.
 [powershell-url]: https://learn.microsoft.com/powershell/
 [windows-shield]: https://img.shields.io/badge/Windows%2010%20%2F%2011-0078D6?style=for-the-badge&logo=windows&logoColor=white
 [windows-url]: https://www.microsoft.com/windows
+[activation-url]: https://support.microsoft.com/windows/ativar-o-windows-c39005d4-95ee-b91e-b399-2820fda32227
